@@ -19,7 +19,7 @@ def main():
     if options.server != None:
         tw.set_db_server(options.server)
     if options.port != None:
-        tw.set_port(options.port)
+        tw.set_port(int(options.port))
     if options.dbname != None:
         tw.set_db_name(options.dbname)
     if options.collection != None:
