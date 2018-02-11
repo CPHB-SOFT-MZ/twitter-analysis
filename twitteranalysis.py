@@ -34,11 +34,12 @@ class TwitterAnalysis():
         regex = Regex.from_native(pattern)
 
         pipeline = [
+            {"$match": {"text": {"$regex": regex}}},
             {"$project": {"user": "$user", "texts": {"$split": ["$text", " "]}}},
             {"$unwind": "$texts"},
             {"$match": {"texts": {"$regex": regex}}},
             {"$group": {"_id": "$texts", "count": {"$sum": 1}}},
-            {"$sort": SON([("count", -1)])},
+            {"$sort": SON([("count", 1)])},
             {"$limit": 10}
         ]
         return self._collection.aggregate(pipeline, allowDiskUse=True)
