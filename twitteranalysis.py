@@ -8,18 +8,26 @@ class TwitterAnalysis():
 
     def __init__(self):
         self._port = 27017
-        self._db_name = "localhost"
+        self._db_server = "localhost"
+        self._db_name = "social_net"
+        self._collection_name = "tweets"
 
     def connect(self):
-        self._client = MongoClient(self._db_name, self._port)
-        self._db = self._client.social_net
-        self._collection = self._db.tweets
+        self._client = MongoClient(self._db_server, self._port)
+        self._db = self._client[self._db_name]
+        self._collection = self._db[self._collection_name]
 
     def set_port(self, port):
         self._port = port
 
+    def set_db_server(self, db_server):
+        self._db_server = db_server
+
     def set_db_name(self, db_name):
         self._db_name = db_name
+
+    def set_db_collection(self, collection_name):
+        self._collection_name = collection_name
 
     # 1. How many Twitter users are in the database?
     def number_of_users(self):

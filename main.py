@@ -9,15 +9,21 @@ def main():
     p = optparse.OptionParser(description='Executes a function on the Twitter data set',
                               usage='main.py -f [1-5]')
     p.add_option("--function", "-f", help="Mandatory. Choose the function number to execute. It goes from 1 to 5, both inclusive")
-    p.add_option("--database", "-b", help="Optional. Set database address. Default is 'localhost'")
+    p.add_option("--server", "-s", help="Optional. Set database server address. Default is 'localhost'")
     p.add_option("--port", "-p", help="Optional. Port of the database server/instance. Default is '27017'")
+    p.add_option("--dbname", "-n", help="Optional. Database name. Default is 'social_net'")
+    p.add_option("--collection", "-c", help="Optional. Collection to get the data from. Default is 'tweets'")
 
     options, arguments = p.parse_args()
 
-    if options.database != None:
-        tw.set_db_name(options.database)
+    if options.server != None:
+        tw.set_db_server(options.server)
     if options.port != None:
         tw.set_port(options.port)
+    if options.dbname != None:
+        tw.set_db_name(options.dbname)
+    if options.collection != None:
+        tw.set_db_collection(options.collection)
 
     tw.connect()
 
