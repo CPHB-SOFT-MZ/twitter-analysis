@@ -10,5 +10,11 @@
 8. Run `mongoimport --drop --db social_net --collection tweets --type csv --headerline --file training.1600000.processed.noemoticon.csv`
 9. Run `git clone https://github.com/ziemerz/twitter-analysis.git && cd twitter-analysis/`
 10. Run `pip3 install -r requirements.txt`
-11. Now you can run the program by running one of the following commands:
-- 
+11. Now you can run the program with the following command: `python3 main.py -f 1`
+
+The `1` after the `-f` flag, indicated what function you want to execute. They map as follow:
+- 1: Total number of distinct users
+- 2: Users mentioning others most
+- 3: Most mentioned users
+- 4: Top ten active users
+- 5: Most grumpy, and most happy users based on tweets
