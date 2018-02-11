@@ -18,3 +18,5 @@ The `1` after the `-f` flag, indicated what function you want to execute. They m
 - 3: Most mentioned users
 - 4: Top ten active users
 - 5: Most grumpy, and most happy users based on tweets
+
+12. If your database has another name, server or port than the default, you can run `python3 main.py --help` to see all available flags
