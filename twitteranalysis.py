@@ -3,6 +3,7 @@ from bson.son import SON
 from bson.regex import Regex
 import re
 
+
 class TwitterAnalysis():
     def __init__(self):
         self._client = MongoClient('localhost', 27017)
@@ -53,7 +54,6 @@ class TwitterAnalysis():
         ]
         return self._collection.aggregate(pipeline, allowDiskUse=True)
 
-
     # Who are the five most grumpy (most negative tweets) and the most happy
     # (most positive tweets)? (Provide five users for each group)
     def most_grumpy_users(self):
@@ -73,9 +73,3 @@ class TwitterAnalysis():
             {"$limit": 5}
         ]
         return self._collection.aggregate(pipeline, allowDiskUse=True)
-
-
-
-
-
-
