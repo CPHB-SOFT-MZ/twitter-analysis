@@ -1,4 +1,8 @@
 # Twitter data analysis
+
+### Prerequisites
+- Docker
+
 ### How to make it run
 1. Run `docker run --rm -v $(pwd)/data:/data/db --publish=27017:27017 --name dbms -d mongo:latest`
 2. Run `docker exec -it {id returned from last command} bash`
